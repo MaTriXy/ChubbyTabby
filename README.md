@@ -1,9 +1,13 @@
-# ChubbyTabby
+# ChubbyTabby <img src="web_hi_res_512.png" height="128" width="128" alt="ChubbyTabby"/> ChubbyTabby 
 
 ## Summary
 
 This is a sample project using the Chrome custom tabs feature to show how we can use it and customize look and feel. 
 It covers UI customization, callback setup, pre-warming and pre-fetching.
+
+
+The application uses Helper Classes from the [example project by Google](https://github.com/GoogleChrome/custom-tabs-client).
+
 
 ## Introduction
 
@@ -33,9 +37,7 @@ UI customization is done through the methods exposed by `CustomTabsIntent.Builde
 
 ## Communication Customization
 The communication between the custom tab activity and the application is done
-via pending intents. For each menu items and action button
- a [`PendingIntent`](http://developer.android.com/reference/android/app/PendingIntent.html)
-must be provided.
+via pending intents For each menu items and action button. 
 
 ## Extra power
 
