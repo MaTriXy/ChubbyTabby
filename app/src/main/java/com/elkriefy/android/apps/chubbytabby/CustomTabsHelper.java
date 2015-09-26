@@ -7,7 +7,6 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.support.customtabs.CustomTabsService;
-import android.text.TextUtils;
 import android.util.Log;
 
 import java.util.ArrayList;
@@ -17,7 +16,10 @@ import java.util.List;
  * Helper class for Custom Tabs.
  */
 public class CustomTabsHelper {
-    private static final String CHROME_PACKAGE = "com.android.chrome";
+    static final String STABLE_PACKAGE = "com.android.chrome";
+    static final String BETA_PACKAGE = "com.chrome.beta";
+    static final String DEV_PACKAGE = "com.chrome.dev";
+    static final String LOCAL_PACKAGE = "com.google.android.apps.chrome";
     private static final String TAG = "CustomTabsHelper";
     private static String sPackageNameToUse;
 
@@ -65,12 +67,18 @@ public class CustomTabsHelper {
             sPackageNameToUse = null;
         } else if (packagesSupportingCustomTabs.size() == 1) {
             sPackageNameToUse = packagesSupportingCustomTabs.get(0);
-        } else if (!TextUtils.isEmpty(defaultViewHandlerPackageName)
+        } else if (!android.text.TextUtils.isEmpty(defaultViewHandlerPackageName)
                 && !hasSpecializedHandlerIntents(context, activityIntent)
                 && packagesSupportingCustomTabs.contains(defaultViewHandlerPackageName)) {
             sPackageNameToUse = defaultViewHandlerPackageName;
-        } else if (packagesSupportingCustomTabs.contains(CHROME_PACKAGE)) {
-            sPackageNameToUse = CHROME_PACKAGE;
+        } else if (packagesSupportingCustomTabs.contains(STABLE_PACKAGE)) {
+            sPackageNameToUse = STABLE_PACKAGE;
+        } else if (packagesSupportingCustomTabs.contains(BETA_PACKAGE)) {
+            sPackageNameToUse = BETA_PACKAGE;
+        } else if (packagesSupportingCustomTabs.contains(DEV_PACKAGE)) {
+            sPackageNameToUse = DEV_PACKAGE;
+        } else if (packagesSupportingCustomTabs.contains(LOCAL_PACKAGE)) {
+            sPackageNameToUse = LOCAL_PACKAGE;
         }
         return sPackageNameToUse;
     }
