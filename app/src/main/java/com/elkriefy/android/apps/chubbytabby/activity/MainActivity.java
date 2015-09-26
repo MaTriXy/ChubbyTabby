@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         //Enabling Title showing
         intentBuilder.setShowTitle(true);
 
-        //This part is adding custom buttons to the over flow menu
+        //This part is adding custom actions to the over flow menu
         String menuItemTitle = getString(R.string.menu_title_share);
         PendingIntent menuItemPendingIntent = createPendingShareIntent();
         intentBuilder.addMenuItem(menuItemTitle, menuItemPendingIntent);
